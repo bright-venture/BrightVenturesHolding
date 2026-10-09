@@ -12,13 +12,12 @@ const out = (f) => join(root, 'public', 'assets', f)
 const PHOTO_WIDTHS = [700, 1200]
 const photos = [
   'real-hero',
-  'real-glass',
   'real-cleaning',
-  'real-maintenance',
-  'real-workforce',
   'real-company-team',
   'real-company-retail',
-  'transport',
+  'tomato-sky-hero',
+  'virgin-valley',
+  'black-beauty',
 ]
 
 await rm(join(root, 'public', 'assets'), { recursive: true, force: true })
@@ -46,8 +45,8 @@ jobs.push(
     .toFile(out('holding-overview-1200.webp')),
 )
 
-// Logo: header (165 CSS px wide) and CEO page (up to 340 CSS px wide), at 2x.
-for (const w of [360, 700]) {
+// Logo: header (165 CSS px), CEO page (up to 340 CSS px) and home hero (up to 450 CSS px), at 2x.
+for (const w of [360, 700, 900]) {
   jobs.push(
     sharp(src('holding-logo.png'))
       .resize({ width: w })
@@ -55,6 +54,13 @@ for (const w of [360, 700]) {
       .toFile(out(`holding-logo-${w}.webp`)),
   )
 }
+
+// Be Right wordmark (transparent, shown at most ~600 CSS px wide).
+jobs.push(
+  sharp(src('be-right-wordmark.png'))
+    .webp({ quality: 90, alphaQuality: 100 })
+    .toFile(out('be-right-wordmark.webp')),
+)
 
 // Favicons from the light-bulb mark on the left of the logo. The crop's lower-right
 // corner overlaps the "BRIGHT"/"HOLDING" wordmark, so it is cut away before trimming.

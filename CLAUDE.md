@@ -2,9 +2,11 @@
 
 Vanilla JS + Vite static site, pre-rendered at build time. No framework. Live on Netlify (push to `master` deploys).
 
-- `src/content.js` holds all content and renders each page as an HTML string via `renderPage(page, lang)`; the `prerender` plugin in `vite.config.js` injects it into the HTML shells (`index.html`, `ar/index.html`, `services/index.html`, …) in both dev and build. Content runs in Node at build time: no `window`/`document` there. Browser JS is only `src/main.js`.
+- `src/content.js` holds all content and renders each page as an HTML string via `renderPage(page, lang)`; the `prerender` plugin in `vite.config.js` injects it into the HTML shells (`index.html`, `ar/index.html`, `ceo/index.html`, `ar/ceo/index.html`) in both dev and build. Content runs in Node at build time: no `window`/`document` there. Browser JS is only `src/main.js`.
 - All visible text goes through `t(en, ar)`. Any new or changed copy needs both English and Arabic; do not alter existing translations or certification wording (ISO 9001:2015) without the user's say-so.
 - Internal links must use `u('/path/')` so Arabic pages link to `/ar/...`.
 - Adding a page: add it to `PAGES` and the title/description maps in `meta()`, the page function map in `renderPage()`, the nav list in `header()`, and create `<name>/index.html` and `ar/<name>/index.html` (copies of `index.html`).
 - Images: originals in `assets-src/`, run `npm run images` to regenerate `public/assets/` (never edit that folder by hand). Photos are referenced with `${photo('name')}` (700/1200 px srcset).
+- Updates arrive as Kimi zips (`site/app.js`, `site/style.css`, `site/assets/`). Port them by mapping into `src/content.js` (keep `u()` links, `photo()` images, the pre-render section at the bottom) and `src/style.css` (drop the font `@import`; `.lang` becomes `.nav .lang` because it is a link here). The rendered text, links and layout should match the zip exactly; compare against the zip served locally.
+- Removed pages get a 301 in `public/_redirects` (English and `/ar/`).
 - Verify with `npm run build`; format with `npm run format`.

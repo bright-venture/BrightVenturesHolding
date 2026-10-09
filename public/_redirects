@@ -1,0 +1,13 @@
+# Pages merged into the homepage (October 2026): send old addresses to the matching section.
+/services/      /#bright              301
+/services       /#bright              301
+/company/       /#holding-company     301
+/company        /#holding-company     301
+/businesses/    /#our-businesses      301
+/businesses     /#our-businesses      301
+/ar/services/   /ar/#bright           301
+/ar/services    /ar/#bright           301
+/ar/company/    /ar/#holding-company  301
+/ar/company     /ar/#holding-company  301
+/ar/businesses/ /ar/#our-businesses   301
+/ar/businesses  /ar/#our-businesses   301

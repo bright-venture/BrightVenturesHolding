@@ -4,12 +4,13 @@ Bilingual company site, live at https://brightventuresholding.com (Netlify, depl
 
 | Page | English | Arabic (RTL) |
 |---|---|---|
-| Home | `/` | `/ar/` |
-| Services | `/services/` | `/ar/services/` |
-| Company | `/company/` | `/ar/company/` |
+| Home (group, Bright, Be Right, Tomato Sky, Business Solutions, holding company) | `/` | `/ar/` |
 | Founder & CEO | `/ceo/` | `/ar/ceo/` |
 
-Originally generated with Kimi; adapted here into a Vite project.
+The old `/services/`, `/company/` and `/businesses/` addresses (and their `/ar/` versions) redirect to
+the matching homepage section via `public/_redirects` (Netlify).
+
+Content comes from Kimi handoff packages (latest: 9 October 2026, see `docs/`), ported into this Vite project.
 
 ## Develop
 
@@ -32,12 +33,13 @@ Every page is pre-rendered to complete HTML at build time, so search engines and
 | `src/style.css` | All styles (RTL tweaks under `[dir=rtl]`) |
 | `src/main.js` | The only browser JS: the mobile menu toggle |
 | `vite.config.js` | `prerender` plugin: fills each HTML shell from `content.js`, writes `sitemap.xml` |
-| `index.html`, `services/`, `company/`, `ceo/`, `ar/…` | Identical HTML shells, one per page and language |
+| `index.html`, `ceo/`, `ar/…` | Identical HTML shells, one per page and language |
 | `assets-src/` | Original images (edit or replace here, then `npm run images`) |
 | `public/assets/` | Generated, optimized images (WebP in 700/1200px widths, favicons, `og-image.jpg`) |
 | `public/robots.txt` | Points crawlers at the sitemap |
+| `public/_redirects` | Netlify redirects for the pages merged into the homepage |
 | `archive/unused-assets/` | Earlier images from the handoff that the site no longer uses |
-| `docs/kimi-handoff-README.txt` | Original handoff notes |
+| `docs/` | Handoff notes from each Kimi package |
 
 ## After deploying
 
@@ -45,5 +47,5 @@ Every page is pre-rendered to complete HTML at build time, so search engines and
 
 ## Open items (from handoff)
 
-- CEO portrait, biography and contact details are still pending.
+- Public contact details, CEO portrait and biography are still pending.
 - Keep existing translations, ISO certification wording and supplied brand assets.
