@@ -1,6 +1,6 @@
 // Generates the optimized images in public/assets/ from the originals in assets-src/.
 // Run with `npm run images` after adding or replacing an original.
-import { mkdir, readdir, rm, stat } from 'node:fs/promises'
+import { copyFile, mkdir, readdir, rm, stat } from 'node:fs/promises'
 import { join, resolve } from 'node:path'
 import sharp from 'sharp'
 
@@ -10,15 +10,9 @@ const out = (f) => join(root, 'public', 'assets', f)
 
 // Responsive photo widths; must match the srcset() helper in src/content.js.
 const PHOTO_WIDTHS = [700, 1200]
-const photos = [
-  'real-hero',
-  'real-cleaning',
-  'real-company-team',
-  'real-company-retail',
-  'tomato-sky-hero',
-  'virgin-valley',
-  'black-beauty',
-]
+const photos = ['tomato-sky-hero']
+// Supplied as small WebP logos already; copied unchanged.
+const copied = ['vardenia-logo-en.webp', 'vardenia-logo-ar.webp', 'virgin-valley-logo.webp']
 
 await rm(join(root, 'public', 'assets'), { recursive: true, force: true })
 await mkdir(join(root, 'public', 'assets'), { recursive: true })
@@ -36,17 +30,18 @@ for (const name of photos) {
   }
 }
 
-// Holding overview diagram: keep it sharp (text), plus a lighter inline version.
+for (const f of copied) jobs.push(copyFile(src(f), out(f)))
+
+// Bright logo on its business card (about 190x100 CSS px), at 2x.
 jobs.push(
-  sharp(src('holding-overview.png')).webp({ quality: 90 }).toFile(out('holding-overview.webp')),
-  sharp(src('holding-overview.png'))
-    .resize({ width: 1200 })
-    .webp({ quality: 88 })
-    .toFile(out('holding-overview-1200.webp')),
+  sharp(src('logo.png'))
+    .resize({ width: 400 })
+    .webp({ quality: 90, alphaQuality: 100 })
+    .toFile(out('bright-logo-400.webp')),
 )
 
-// Logo: header (165 CSS px), CEO page (up to 340 CSS px) and home hero (up to 450 CSS px), at 2x.
-for (const w of [360, 700, 900]) {
+// Logo: header (165 CSS px) and CEO page (up to 340 CSS px), at 2x.
+for (const w of [360, 700]) {
   jobs.push(
     sharp(src('holding-logo.png'))
       .resize({ width: w })
@@ -88,7 +83,7 @@ jobs.push(
     .toFile(out('apple-touch-icon.png')),
 )
 
-// Social sharing preview (Open Graph): 1200x630.
+// Social sharing preview (Open Graph): 1200x630. real-hero is no longer on the site; it is kept as the source of this image.
 jobs.push(
   sharp(src('real-hero.webp'))
     .resize(1200, 630, { fit: 'cover', position: 'attention' })
