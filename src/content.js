@@ -5,11 +5,7 @@ function businessDetails() {
       'Vardenia',
       'A print and digital tourism and lifestyle guide to Lebanon’s hotels, dining, destinations and experiences.',
       'دليل مطبوع ورقمي للسياحة وأسلوب الحياة في لبنان، يعرّف بالفنادق والمطاعم والوجهات والتجارب المميّزة.',
-      '<img class="brand-logo" src="/assets/vardenia-logo-' +
-        (ar ? 'ar' : 'en') +
-        '.webp" alt="' +
-        t('Vardenia', 'فاردينيا') +
-        '" loading="lazy">',
+      '<img class="brand-logo" src="/assets/vardenia-logo-en.webp" alt="Vardenia" loading="lazy">',
       'https://vardenia.com/',
     ],
     [

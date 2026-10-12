@@ -12,7 +12,7 @@ const out = (f) => join(root, 'public', 'assets', f)
 const PHOTO_WIDTHS = [700, 1200]
 const photos = ['tomato-sky-hero']
 // Supplied as small WebP logos already; copied unchanged.
-const copied = ['vardenia-logo-en.webp', 'vardenia-logo-ar.webp', 'virgin-valley-logo.webp']
+const copied = ['vardenia-logo-en.webp', 'virgin-valley-logo.webp']
 
 await rm(join(root, 'public', 'assets'), { recursive: true, force: true })
 await mkdir(join(root, 'public', 'assets'), { recursive: true })

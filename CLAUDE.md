@@ -10,4 +10,5 @@ Vanilla JS + Vite static site, pre-rendered at build time. No framework. Live on
 - Updates arrive as Kimi zips (`site/app.js`, `site/style.css`, `site/assets/`). Port them by mapping into `src/content.js` (keep `u()` links, `photo()` images, the pre-render section at the bottom) and `src/style.css` (drop the font `@import`; `.lang` becomes `.nav .lang` because it is a link here). The rendered text, links and layout should match the zip exactly; compare against the zip served locally.
 - Removed pages get a 301 in `public/_redirects` (English and `/ar/`).
 - The Founder & CEO page, its menu link and the homepage leadership strip were removed at the user's request (12 Oct 2026). Kimi packages may still contain them: leave them out when porting unless the user asks otherwise.
+- Vardenia uses its English logo (`vardenia-logo-en.webp`) on Arabic pages too, at the user's request; Kimi packages switch to `vardenia-logo-ar.webp` in Arabic, so drop that when porting. Avoid em dashes (—) in site copy.
 - Verify with `npm run build`; format with `npm run format`.
