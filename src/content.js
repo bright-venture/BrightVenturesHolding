@@ -21,7 +21,7 @@ function businessDetails() {
       'Tomato Sky',
       'A Lebanese company working across agriculture, food and produce, trade and marketing.',
       'شركة لبنانية تعمل في الزراعة والأغذية والمحاصيل الزراعية والتجارة والتسويق.',
-      '<img ' + photo('tomato-sky-hero') + ' alt="Tomato Sky" loading="lazy">',
+      '<img class="brand-logo" src="/assets/tomato-sky-logo.webp" alt="Tomato Sky" loading="lazy">',
       'https://tomatosky.com/',
     ],
     [

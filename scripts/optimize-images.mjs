@@ -10,7 +10,7 @@ const out = (f) => join(root, 'public', 'assets', f)
 
 // Responsive photo widths; must match the srcset() helper in src/content.js.
 const PHOTO_WIDTHS = [700, 1200]
-const photos = ['tomato-sky-hero']
+const photos = []
 // Supplied as small WebP logos already; copied unchanged.
 const copied = ['vardenia-logo-en.webp', 'virgin-valley-logo.webp']
 
@@ -38,6 +38,16 @@ jobs.push(
     .resize({ width: 400 })
     .webp({ quality: 90, alphaQuality: 100 })
     .toFile(out('bright-logo-400.webp')),
+)
+
+// Tomato Sky logo (extracted from the supplied "Logo tomatosky.pdf"): white margins trimmed,
+// shown on its business card at about 100 CSS px tall, so 300 px tall covers 2x and up.
+jobs.push(
+  sharp(src('tomato-sky-logo.jpg'))
+    .trim({ background: '#ffffff', threshold: 12 })
+    .resize({ height: 300 })
+    .webp({ quality: 88 })
+    .toFile(out('tomato-sky-logo.webp')),
 )
 
 // Logo: header (165 CSS px) and CEO page (up to 340 CSS px), at 2x.
