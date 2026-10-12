@@ -164,9 +164,6 @@ function head({ title, description }) {
     `<meta property="og:locale" content="${ar ? 'ar_LB' : 'en_GB'}">`,
     `<meta property="og:locale:alternate" content="${ar ? 'en_GB' : 'ar_LB'}">`,
     `<meta name="twitter:card" content="summary_large_image">`,
-    `<link rel="preconnect" href="https://fonts.googleapis.com">`,
-    `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>`,
-    `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap">`,
     route === 'home'
       ? `<script type="application/ld+json">${JSON.stringify(organization)}</script>`
       : '',

@@ -29,7 +29,7 @@ Every page is pre-rendered to complete HTML at build time, so search engines and
 | Path | Purpose |
 |---|---|
 | `src/content.js` | All page content, titles, descriptions and SEO tags. Every string is `t('English', 'Arabic')` |
-| `src/style.css` | All styles (RTL tweaks under `[dir=rtl]`) |
+| `src/style.css` | All styles (RTL tweaks under `[dir=rtl]`); imports the self-hosted fonts (`@fontsource/*`) |
 | `src/main.js` | The only browser JS: the mobile menu toggle |
 | `vite.config.js` | `prerender` plugin: fills each HTML shell from `content.js`, writes `sitemap.xml` |
 | `index.html`, `ar/index.html` | Identical HTML shells, one per language |
