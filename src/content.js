@@ -52,7 +52,7 @@ function businessDetails() {
 let ar = false
 let route = 'home'
 const t = (en, arabic) => (ar ? arabic : en)
-// Internal link in the current language: u('/ceo/') is '/ar/ceo/' on Arabic pages.
+// Internal link in the current language: u('/') is '/ar/' on Arabic pages.
 const u = (path) => (ar ? '/ar' + path : path)
 // Responsive photo attributes; widths must match PHOTO_WIDTHS in scripts/optimize-images.mjs.
 const photo = (name) =>
@@ -61,7 +61,6 @@ function header() {
   return `<a class="skip" href="#main" style="position:absolute;top:-100px" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">${t('Skip to content', 'انتقل إلى المحتوى')}</a><header class="wrap header"><a class="brand" href="${u('/')}" aria-label="Bright Ventures Holding SAL"><img src="/assets/holding-logo-360.webp" alt="Bright Ventures Holding SAL"><span>${t('Facility & support<br>services', 'خدمات المرافق<br>والدعم')}</span></a><button class="menu" aria-expanded="false" aria-controls="nav">${t('Menu', 'القائمة')}</button><nav class="nav" id="nav" aria-label="${t('Main navigation', 'التنقل الرئيسي')}">${[
     ['home', '/', 'Home', 'الرئيسية'],
     ['businesses', '/#our-businesses', 'Our businesses', 'أعمالنا'],
-    ['ceo', '/ceo/', 'Founder & CEO', 'المؤسس والرئيس التنفيذي'],
   ]
     .map(
       ([r, h, e, a]) =>
@@ -103,17 +102,14 @@ function agreementChart() {
   return `<figure class="agreement-chart"><figcaption><h3>${t('Value of Agreement', 'قيمة الاتفاقية')}</h3><span>${t('USD · Selected years', 'دولار أمريكي · سنوات مختارة')}</span></figcaption><svg viewBox="0 0 528 316" role="img" aria-labelledby="agreement-title agreement-desc" dir="ltr" xmlns="http://www.w3.org/2000/svg"><title id="agreement-title">${t('Value of Agreement in USD', 'قيمة الاتفاقية بالدولار الأمريكي')}</title><desc id="agreement-desc">2005: USD 37,000; 2006: USD 100,000; 2010: USD 300,000; 2016: USD 2,500,000; 2020: USD 750,000; 2025: USD 2,500,000.</desc>${grid}${bars}</svg></figure>`
 }
 function home() {
-  return `<main id="main" class="compact-home"><section class="wrap hero holding-hero" id="holding-company"><div><div class="eyebrow">${t('Bright Ventures Holding SAL · Lebanon', 'برايت فنتشرز هولدينغ ش.م.ل. · لبنان')}</div><h1>${t('Distinct businesses.<br><em>One shared vision.</em>', 'أعمال متنوّعة.<br><em>رؤية مشتركة.</em>')}</h1><p>${t('Vardenia, Virgin Valley, Tomato Sky, Bright and Be Right — together under Bright Ventures Holding SAL.', 'تجمع برايت فنتشرز هولدينغ ش.م.ل. كلّاً من <bdi>Vardenia</bdi> و<bdi>Virgin Valley</bdi> و<bdi>Tomato Sky</bdi> و<bdi>Bright</bdi> و<bdi>Be Right</bdi>.')}</p><a class="button" href="${u('/')}#our-businesses">${t('Our businesses', 'أعمالنا')}</a></div>${agreementChart()}</section>${businessDetails()}<section class="wrap compact-leadership"><div><div class="eyebrow">${t('Leadership', 'الإدارة')}</div><h3>Mohamad Lamaa</h3><p>${t('Founder & CEO', 'المؤسس والرئيس التنفيذي')}</p></div><a class="text-link" href="${u('/ceo/')}">${t('Meet our founder & CEO', 'تعرّف على المؤسس والرئيس التنفيذي')} →</a></section></main>`
+  return `<main id="main" class="compact-home"><section class="wrap hero holding-hero" id="holding-company"><div><div class="eyebrow">${t('Bright Ventures Holding SAL · Lebanon', 'برايت فنتشرز هولدينغ ش.م.ل. · لبنان')}</div><h1>${t('Distinct businesses.<br><em>One shared vision.</em>', 'أعمال متنوّعة.<br><em>رؤية مشتركة.</em>')}</h1><p>${t('Vardenia, Virgin Valley, Tomato Sky, Bright and Be Right — together under Bright Ventures Holding SAL.', 'تجمع برايت فنتشرز هولدينغ ش.م.ل. كلّاً من <bdi>Vardenia</bdi> و<bdi>Virgin Valley</bdi> و<bdi>Tomato Sky</bdi> و<bdi>Bright</bdi> و<bdi>Be Right</bdi>.')}</p><a class="button" href="${u('/')}#our-businesses">${t('Our businesses', 'أعمالنا')}</a></div>${agreementChart()}</section>${businessDetails()}</main>`
 }
 function heading(e, a, d, b) {
   return `<div class="wrap page-heading"><div class="eyebrow">${t('Bright Ventures Holding SAL · Lebanon', 'برايت فنتشرز هولدينغ ش.م.ل. · لبنان')}</div><h1>${t(e, a)}</h1><p>${t(d, b)}</p></div>`
 }
-function ceoPage() {
-  return `<main id="main"><section class="wrap ceo"><div><div class="eyebrow">${t('Our leadership', 'إدارتنا')}</div><h1>Mohamad<br>Lamaa</h1><p class="role">${t('Founder & CEO', 'المؤسس والرئيس التنفيذي')}</p><p>${t('Bright Ventures Holding SAL', 'برايت فنتشرز هولدينغ ش.م.ل.')}</p><a class="button" href="${u('/')}#holding-company">${t('About the holding company', 'عن الشركة القابضة')}</a></div><div class="ceo-mark"><img src="/assets/holding-logo-700.webp" alt="Bright Ventures Holding SAL"><p>${t('Services · Business · Food & agriculture', 'الخدمات · الأعمال · الأغذية والزراعة')}</p></div></section><section class="pale"><div class="wrap section"><div class="eyebrow">${t('The holding company', 'الشركة القابضة')}</div><h2>${t('Distinct businesses.<br>One shared direction.', 'أعمال متنوّعة.<br>توجّه مشترك.')}</h2><p>${t('Explore Vardenia, Virgin Valley, Tomato Sky, Bright and Be Right within the group.', 'اكتشفوا Vardenia وVirgin Valley وTomato Sky وBright وBe Right ضمن المجموعة.')}</p><a class="text-link" href="${u('/')}#our-businesses">${t('Explore our businesses', 'اكتشف أعمالنا')}</a></div></section></main>`
-}
 
 export const SITE_URL = 'https://brightventuresholding.com'
-export const PAGES = ['home', 'ceo']
+export const PAGES = ['home']
 export const LANGS = ['en', 'ar']
 
 export function pagePath(page, lang) {
@@ -128,16 +124,11 @@ function meta() {
     t('Bright Ventures Holding SAL | ', 'برايت فنتشرز هولدينغ ش.م.ل. | ') +
     {
       home: t('Our Group & Businesses', 'المجموعة وأعمالها'),
-      ceo: t('Mohamad Lamaa · Founder & CEO', 'Mohamad Lamaa · المؤسس والرئيس التنفيذي'),
     }[route]
   const description = {
     home: t(
       'Bright Ventures Holding SAL: Vardenia, Virgin Valley, Tomato Sky, Bright and Be Right, together under one Lebanese group.',
       'تجمع برايت فنتشرز هولدينغ ش.م.ل. كلّاً من Vardenia وVirgin Valley وTomato Sky وBright وBe Right.',
-    ),
-    ceo: t(
-      'Mohamad Lamaa, Founder and CEO of Bright Ventures Holding SAL.',
-      'Mohamad Lamaa، المؤسس والرئيس التنفيذي لبرايت فنتشرز هولدينغ ش.م.ل.',
     ),
   }[route]
   return { title, description }
@@ -154,7 +145,6 @@ function head({ title, description }) {
     logo: SITE_URL + '/assets/holding-logo-700.webp',
     description: meta().description,
     areaServed: { '@type': 'Country', name: 'Lebanon' },
-    founder: { '@type': 'Person', name: 'Mohamad Lamaa', jobTitle: 'Founder & CEO' },
   }
   return [
     `<title>${esc(title)}</title>`,
@@ -193,7 +183,7 @@ function head({ title, description }) {
 export function renderPage(page, lang) {
   route = page
   ar = lang === 'ar'
-  const body = header() + { home, ceo: ceoPage }[page]() + footer()
+  const body = header() + { home }[page]() + footer()
   return { lang, dir: ar ? 'rtl' : 'ltr', head: head(meta()), body }
 }
 
