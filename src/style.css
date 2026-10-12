@@ -1482,3 +1482,12 @@ summary:focus-visible {
     font-size: 18px;
   }
 }
+
+/* Skip link (was inline style/handlers; moved here so the Content-Security-Policy can block inline code) */
+.skip {
+  position: absolute;
+  top: -100px;
+}
+.skip:focus {
+  top: 0;
+}

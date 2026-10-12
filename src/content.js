@@ -54,7 +54,7 @@ const u = (path) => (ar ? '/ar' + path : path)
 const photo = (name) =>
   `src="/assets/${name}-1200.webp" srcset="/assets/${name}-700.webp 700w, /assets/${name}-1200.webp 1200w" sizes="(max-width: 650px) 100vw, 50vw"`
 function header() {
-  return `<a class="skip" href="#main" style="position:absolute;top:-100px" onfocus="this.style.top='0'" onblur="this.style.top='-100px'">${t('Skip to content', 'انتقل إلى المحتوى')}</a><header class="wrap header"><a class="brand" href="${u('/')}" aria-label="Bright Ventures Holding SAL"><img src="/assets/holding-logo-360.webp" alt="Bright Ventures Holding SAL"><span>${t('Facility & support<br>services', 'خدمات المرافق<br>والدعم')}</span></a><button class="menu" aria-expanded="false" aria-controls="nav">${t('Menu', 'القائمة')}</button><nav class="nav" id="nav" aria-label="${t('Main navigation', 'التنقل الرئيسي')}">${[
+  return `<a class="skip" href="#main">${t('Skip to content', 'انتقل إلى المحتوى')}</a><header class="wrap header"><a class="brand" href="${u('/')}" aria-label="Bright Ventures Holding SAL"><img src="/assets/holding-logo-360.webp" alt="Bright Ventures Holding SAL"><span>${t('Facility & support<br>services', 'خدمات المرافق<br>والدعم')}</span></a><button class="menu" aria-expanded="false" aria-controls="nav">${t('Menu', 'القائمة')}</button><nav class="nav" id="nav" aria-label="${t('Main navigation', 'التنقل الرئيسي')}">${[
     ['home', '/', 'Home', 'الرئيسية'],
     ['businesses', '/#our-businesses', 'Our businesses', 'أعمالنا'],
   ]

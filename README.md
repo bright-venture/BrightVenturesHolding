@@ -37,6 +37,7 @@ Every page is pre-rendered to complete HTML at build time, so search engines and
 | `public/assets/` | Generated, optimized images (WebP in 700/1200px widths, favicons, `og-image.jpg`) |
 | `public/robots.txt` | Points crawlers at the sitemap |
 | `public/_redirects` | Netlify redirects for the pages merged into the homepage |
+| `public/_headers` | Netlify security headers (Content-Security-Policy, anti-clickjacking, etc.) |
 | `archive/unused-assets/` | Earlier images from the handoff that the site no longer uses |
 | `docs/` | Handoff notes from each Kimi package |
 
