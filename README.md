@@ -10,7 +10,7 @@ Bilingual company site, live at https://brightventuresholding.com (Netlify, depl
 The old `/services/`, `/company/` and `/businesses/` addresses (and their `/ar/` versions) redirect to
 the matching homepage section via `public/_redirects` (Netlify).
 
-Content comes from Kimi handoff packages (latest: 9 October 2026 bar-graph version, see `docs/`), ported into this Vite project.
+Content comes from Kimi handoff packages (latest: 12 October 2026, see `docs/`), ported into this Vite project.
 
 ## Develop
 
