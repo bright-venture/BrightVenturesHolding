@@ -12,4 +12,5 @@ Vanilla JS + Vite static site, pre-rendered at build time. No framework. Live on
 - Removed pages get a 301 in `public/_redirects` (English and `/ar/`).
 - The Founder & CEO page, its menu link and the homepage leadership strip were removed at the user's request (12 Oct 2026). Kimi packages may still contain them: leave them out when porting unless the user asks otherwise.
 - Vardenia uses its English logo (`vardenia-logo-en.webp`) on Arabic pages too, at the user's request; Kimi packages switch to `vardenia-logo-ar.webp` in Arabic, so drop that when porting. The Tomato Sky card shows the official logo (`assets-src/tomato-sky-logo.jpg`, from the user's PDF) instead of Kimi's `tomato-sky-hero.webp` image; keep it when porting. Avoid em dashes (—) in site copy.
+- The "Value of Agreement" chart was removed from the homepage and the intro centered (`.holding-hero-centered`, 15 Oct 2026). The approved chart is kept for a later brightlb.com integration, not this site; leave it out when porting older Kimi packages.
 - Verify with `npm run build`; format with `npm run format`.

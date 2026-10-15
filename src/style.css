@@ -1513,3 +1513,25 @@ summary:focus-visible {
 .skip:focus {
   top: 0;
 }
+
+/* Bright Ventures Holding: centered introduction, 15 October 2026 (Value of Agreement chart removed) */
+.compact-home .holding-hero-centered {
+  grid-template-columns: minmax(0, 1fr);
+  text-align: center;
+  justify-items: center;
+  min-height: 0;
+}
+.compact-home .holding-hero-centered > div {
+  width: 100%;
+  max-width: 940px;
+}
+.compact-home .holding-hero-centered p {
+  max-width: 680px;
+  margin: 18px auto 10px;
+}
+.compact-home .holding-hero-centered .eyebrow {
+  margin-bottom: 18px;
+}
+.compact-home .holding-hero-centered p bdi {
+  white-space: nowrap;
+}

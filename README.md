@@ -4,12 +4,12 @@ Bilingual company site, live at https://brightventuresholding.com (Netlify, depl
 
 | Page | English | Arabic (RTL) |
 |---|---|---|
-| Home (group intro, Value of Agreement chart, Vardenia, Virgin Valley, Tomato Sky, Bright, Be Right) | `/` | `/ar/` |
+| Home (centered group intro, Vardenia, Virgin Valley, Tomato Sky, Bright, Be Right) | `/` | `/ar/` |
 
 The old `/services/`, `/company/`, `/businesses/` and `/ceo/` addresses (and their `/ar/` versions) redirect to
 the homepage (or its matching section) via `public/_redirects` (Netlify).
 
-Content comes from Kimi handoff packages (latest: 12 October 2026, see `docs/`), ported into this Vite project.
+Content comes from Kimi handoff packages (latest: 15 October 2026 centered-homepage update, see `docs/`), ported into this Vite project.
 
 ## Develop
 

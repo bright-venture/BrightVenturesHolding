@@ -69,36 +69,8 @@ function header() {
 function footer() {
   return `<footer class="wrap footer"><div><strong>${t('Bright Ventures Holding SAL', 'برايت فنتشرز هولدينغ ش.م.ل.')}</strong><br>${t('A Lebanese group with a shared vision.', 'مجموعة لبنانية تجمعها رؤية مشتركة.')}</div><div>${t('Company profile · 2026', 'الملف التعريفي للشركة · ٢٠٢٦')}</div></footer>`
 }
-function agreementChart() {
-  const data = [
-    [2005, 37000],
-    [2006, 100000],
-    [2010, 300000],
-    [2016, 2500000],
-    [2020, 750000],
-    [2025, 2500000],
-  ]
-  const baseline = 270,
-    plotHeight = 240,
-    max = 2500000
-  const grid = [0, 500000, 1000000, 1500000, 2000000, 2500000]
-    .map((value) => {
-      const y = baseline - (value / max) * plotHeight
-      const label = value === 0 ? '0' : value < 1000000 ? '500K' : value / 1000000 + 'M'
-      return `<line x1="50" x2="514" y1="${y}" y2="${y}" class="chart-grid"/><text x="42" y="${y + 5}" text-anchor="end" class="chart-tick">${label}</text>`
-    })
-    .join('')
-  const bars = data
-    .map(([year, value], i) => {
-      const x = 65 + i * 76,
-        height = (value / max) * plotHeight
-      return `<g><title>${year}: USD ${value.toLocaleString('en-US')}</title><rect x="${x}" y="${baseline - height}" width="42" height="${height}" rx="2" fill="${i === 5 ? 'var(--cyan)' : 'var(--blue)'}"/><text x="${x + 21}" y="${baseline - height - 10}" text-anchor="middle" class="chart-value">$${value.toLocaleString('en-US')}</text><text x="${x + 21}" y="297" text-anchor="middle" class="chart-year">${year}</text></g>`
-    })
-    .join('')
-  return `<figure class="agreement-chart"><figcaption><h3>${t('Value of Agreement', 'قيمة الاتفاقية')}</h3><span>${t('USD · Selected years', 'دولار أمريكي · سنوات مختارة')}</span></figcaption><svg viewBox="0 0 528 316" role="img" aria-labelledby="agreement-title agreement-desc" dir="ltr" xmlns="http://www.w3.org/2000/svg"><title id="agreement-title">${t('Value of Agreement in USD', 'قيمة الاتفاقية بالدولار الأمريكي')}</title><desc id="agreement-desc">2005: USD 37,000; 2006: USD 100,000; 2010: USD 300,000; 2016: USD 2,500,000; 2020: USD 750,000; 2025: USD 2,500,000.</desc>${grid}${bars}</svg></figure>`
-}
 function home() {
-  return `<main id="main" class="compact-home"><section class="wrap hero holding-hero" id="holding-company"><div><div class="eyebrow">${t('Bright Ventures Holding SAL · Lebanon', 'برايت فنتشرز هولدينغ ش.م.ل. · لبنان')}</div><h1>${t('Distinct businesses.<br><em>One shared vision.</em>', 'أعمال متنوّعة.<br><em>رؤية مشتركة.</em>')}</h1><p>${t('Vardenia, Virgin Valley, Tomato Sky, Bright and Be Right, together under Bright Ventures Holding SAL.', 'تجمع برايت فنتشرز هولدينغ ش.م.ل. كلّاً من <bdi>Vardenia</bdi> و<bdi>Virgin Valley</bdi> و<bdi>Tomato Sky</bdi> و<bdi>Bright</bdi> و<bdi>Be Right</bdi>.')}</p><a class="button" href="${u('/')}#our-businesses">${t('Our businesses', 'أعمالنا')}</a></div>${agreementChart()}</section>${businessDetails()}</main>`
+  return `<main id="main" class="compact-home"><section class="wrap hero holding-hero holding-hero-centered" id="holding-company"><div><div class="eyebrow">${t('Bright Ventures Holding SAL · Lebanon', 'برايت فنتشرز هولدينغ ش.م.ل. · لبنان')}</div><h1>${t('Distinct businesses.<br><em>One shared vision.</em>', 'أعمال متنوّعة.<br><em>رؤية مشتركة.</em>')}</h1><p>${t('Vardenia, Virgin Valley, Tomato Sky, Bright and Be Right, together under Bright Ventures Holding SAL.', 'تجمع برايت فنتشرز هولدينغ ش.م.ل. كلّاً من <bdi>Vardenia</bdi> و<bdi>Virgin Valley</bdi> و<bdi>Tomato Sky</bdi> و<bdi>Bright</bdi> و<bdi>Be Right</bdi>.')}</p><a class="button" href="${u('/')}#our-businesses">${t('Our businesses', 'أعمالنا')}</a></div></section>${businessDetails()}</main>`
 }
 function heading(e, a, d, b) {
   return `<div class="wrap page-heading"><div class="eyebrow">${t('Bright Ventures Holding SAL · Lebanon', 'برايت فنتشرز هولدينغ ش.م.ل. · لبنان')}</div><h1>${t(e, a)}</h1><p>${t(d, b)}</p></div>`
